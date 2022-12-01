@@ -136,11 +136,10 @@ def Main(str_to_hash):
         total2 += XORFunction(StringToNumbers[letter], 1033)
     for letter in string2:
         total2 += XORFunction(StringToNumbers[letter], 3301)
-    total += (total2)-(1033*3301)
     for letter in stepthree:
         total += StringToNumbers[letter]
     for i in range(0,512):
-        total *= XORFunction(total, total2)
+        total *= (XORFunction(total, total2)*1033*3301)
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
