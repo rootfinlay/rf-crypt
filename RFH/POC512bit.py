@@ -115,6 +115,7 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
+    n = len(stepthree)
     for letter in stepthree:
         total += StringToNumbers[letter]
     total *= ((877653 * 3301 * 1033)*4096)*4096
@@ -128,17 +129,50 @@ def Main(str_to_hash):
     else:
         string1 = stepfour[0:(n//2+1)]
         string2 = stepfour[(n//2+1):]
-
     stepfive = ''.join(string2)
     stepfive += string1
+    total2 = 0
+    for letter in string1:
+        total2 += XORFunction(StringToNumbers[letter], 1033)
+    for letter in string2:
+        total2 += XORFunction(StringToNumbers[letter], 3301)
+    total += (total2)-(1033*3301)
     for letter in stepthree:
         total += StringToNumbers[letter]
+    for i in range(0,128):
+        total *= XORFunction(total, total2)
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     final = BinToHex(steptwo)
-    final = final[:-4]
+    final = final[:128]
     print("Hash: ", final)
+
+def XORFunction(x, y):
+    #Initializing resultant variable
+    res = 0
+  
+    # Assuming provided integers are 32 bit integers
+    for i in range(31, -1, -1):
+          
+        # Find the bits of the provided integers
+        b1 = x & (1 << i)
+        b2 = y & (1 << i)
+        b1 = min(b1, 1)
+        b2 = min(b2, 1)
+  
+        # Checks if both integers are either 1s or 0s
+        # if not proceeds to peform standard OR operation
+        xorBit = 0
+        if (b1 & b2):
+            xorBit = 0
+        else:
+            xorBit = (b1 | b2)
+  
+        # Update the resultant variable
+        res <<= 1
+        res |= xorBit
+    return res
 
 def BinToHex(steptwo):
     value = ''.join([str(x) for x in steptwo])

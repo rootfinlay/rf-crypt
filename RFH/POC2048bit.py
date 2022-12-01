@@ -73,9 +73,6 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nFirst ittr numeric value: ", total)
-    print("First ittr bin value: ", steptwo)
-    print("First ittr hash: ", stepthree)
     count = 1
     for letter in stepthree:
         total += (StringToNumbers[letter]*count)
@@ -84,9 +81,6 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nSecond ittr numeric value: ", total)
-    print("Second ittr bin value: ", steptwo)
-    print("Second ittr hash: ", stepthree)
     count = 1
     for letter in stepthree:
         total += (StringToNumbers[letter]*count)
@@ -95,9 +89,6 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nThird ittr numeric value: ", total)
-    print("Third ittr bin value: ", steptwo)
-    print("Third ittr hash: ", stepthree)
     count = 1
     for letter in stepthree:
         total += (StringToNumbers[letter]*count)
@@ -106,45 +97,31 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nFourth ittr numeric value: ", total)
-    print("Fourth ittr bin value: ", steptwo)
-    print("Fourth ittr hash: ", stepthree)
     for letter in stepthree:
         total += StringToNumbers[letter]
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nFifth ittr numeric value: ", total)
-    print("Fifth ittr bin value: ", steptwo)
-    print("Fifth ittr hash: ", stepthree)
     for letter in stepthree:
         total += StringToNumbers[letter]
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nSixth ittr numeric value: ", total)
-    print("Sixth ittr bin value: ", steptwo)
-    print("Sixth ittr hash: ", stepthree)
     for letter in stepthree:
         total += StringToNumbers[letter]
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepthree = BinToHex(steptwo)
-    print("\nSeventh ittr numeric value: ", total)
-    print("Seventh ittr bin value: ", steptwo)
-    print("Seventh ittr hash: ", stepthree)
+    n = len(stepthree)
     for letter in stepthree:
         total += StringToNumbers[letter]
     total *= ((877653 * 3301 * 1033)*4096)*4096
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     stepfour = BinToHex(steptwo)
-    print("\nEighth ittr numeric value: ", total)
-    print("Eighth ittr bin value: ", steptwo)
-    print("Eighth ittr hash: ", stepfour)
     n = len(stepfour)
     if n%2 == 0:
         string1 = stepfour[0:n//2]
@@ -162,17 +139,14 @@ def Main(str_to_hash):
     total += (total2)-(1033*3301)
     for letter in stepthree:
         total += StringToNumbers[letter]
-    for i in range(0,2048):
+    for i in range(0,512):
         total *= XORFunction(total, total2)
     total *= ((877653 * 3301 * 1033)*4096)*4096
-    print(total)
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     final = BinToHex(steptwo)
-    final = final[:128]
-    print("\nFinal ittr numeric value: ", total)
-    print("Final ittr bin value: ", steptwo)
-    print("\n\nFINAL HASH: ", final)
+    final = final[:512]
+    print("Hash: ", final)
 
 def XORFunction(x, y):
     #Initializing resultant variable
