@@ -159,19 +159,19 @@ def Main(str_to_hash):
         total2 += XORFunction(StringToNumbers[letter], 1033)
     for letter in string2:
         total2 += XORFunction(StringToNumbers[letter], 3301)
-    total += (total2)-(1033*3301)
     for letter in stepthree:
         total += StringToNumbers[letter]
-    for i in range(0,2048):
-        total *= XORFunction(total, total2)
+    for i in range(0,512):
+        total *= (XORFunction(total, total2)*1033*3301)
     total *= ((877653 * 3301 * 1033)*4096)*4096
     print(total)
     stepone = StrToBin(total)
     steptwo = stepone[2:]
-    final = BinToHex(steptwo)
-    final = final[:2048]
+    finalbefore = BinToHex(steptwo)
+    final = finalbefore[:512]
     print("\nFinal ittr numeric value: ", total)
     print("Final ittr bin value: ", steptwo)
+    print("\nFinal before: ", finalbefore)
     print("\n\nFINAL HASH: ", final)
 
 def XORFunction(x, y):
