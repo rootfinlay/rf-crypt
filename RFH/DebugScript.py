@@ -169,7 +169,7 @@ def Main(str_to_hash):
     stepone = StrToBin(total)
     steptwo = stepone[2:]
     final = BinToHex(steptwo)
-    final = final[:128]
+    final = final[:2048]
     print("\nFinal ittr numeric value: ", total)
     print("Final ittr bin value: ", steptwo)
     print("\n\nFINAL HASH: ", final)

@@ -5,6 +5,8 @@
 
  rfhash comes in 256-2048bit hashes.
 
+WARNING: rf-hash is still being updated and tested, it is NOT ready for production..
+
  # Examples
  ```console
 # 256bit
