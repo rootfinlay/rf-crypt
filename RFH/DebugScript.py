@@ -61,6 +61,36 @@ StringToNumbers = {
     "8" : 2017,
     "9" : 193,
     "0" : 1033,
+    " " : 2689,
+    "!" : 1451,
+    "£" : 1123,
+    '"' : 317,
+    "$" : 613,
+    "%" : 1069,
+    "^" : 7649,
+    "&" : 5281,
+    "*" : 2551,
+    "(" : 4903,
+    ")" : 5519,
+    "-" : 4111,
+    "_" : 4211,
+    "=" : 1877,
+    "+" : 5,
+    "[" : 4229,
+    "]" : 6701,
+    ":" : 7717,
+    ";" : 4019,
+    "'" : 6329,
+    "@" : 5879,
+    "#" : 2137,
+    "~" : 641,
+    "," : 5843,
+    "<" : 5381,
+    "." : 2351,
+    "/" : 7727,
+    "?" : 7879,
+    "`" : 61,
+    "¬" : 997,
 }
 
 def Main(str_to_hash):
@@ -170,7 +200,7 @@ def Main(str_to_hash):
     finalbefore = BinToHex(steptwo)
     final = finalbefore[:512]
     print("\nFinal ittr numeric value: ", total)
-    print("Final ittr bin value: ", steptwo)
+    print("\nFinal ittr bin value: ", steptwo)
     print("\nFinal before: ", finalbefore)
     print("\n\nFINAL HASH: ", final)
 
