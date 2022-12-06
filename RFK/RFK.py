@@ -175,7 +175,7 @@ def GenKeypair(seedphrase, name, password):
         privf.close()
 
 def EncodePubKey(publickey, name):
-    out = ''.join("               ----- BEGIN RF PUBKEY BLOCK -----\n\n\n")
+    out = ''.join("               ----- BEGIN RF PUBKEY BLOCK -----\n\n")
     out += "Name:  " + name + "\n\n"
     count = 0
     publickey = publickey.decode('utf-8')
@@ -190,7 +190,7 @@ def EncodePubKey(publickey, name):
     return out
 
 def EncodePrivKey(privatekey, name, link):
-    out = ''.join("              ----- BEGIN RF PRIVKEY BLOCK -----\n\n\n")
+    out = ''.join("              ----- BEGIN RF PRIVKEY BLOCK -----\n\n")
     out += "Name:  " + name + "\n"
     out += "Link:  " + link + "\n\n"
     count = 0
